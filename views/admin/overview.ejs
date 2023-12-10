@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Tazor</title>
+    <!-- CSS files -->
+    <link href="../../../app-assets/tabler/css/tabler.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/tabler-flags.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/tabler-payments.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/tabler-vendors.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/demo.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Space Grotesk', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+    </style>
+  </head>
+  <body data-bs-theme="dark">
+    <div class="page">
+      <!-- Sidebar -->
+      <%- include('../components/navigation-admin') %>
+      <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  Admin area
+                </div>
+                <h2 class="page-title">
+                  Overview
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+          <div class="container-xl">
+            <section id="dashboard-analytics">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card bg-primary text-primary-fg">
+                            <div class="card-stamp">
+                              <div class="card-stamp-icon bg-white text-primary">
+                                <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path></svg>
+                              </div>
+                            </div>
+                            <div class="card-body">
+                              <h3 class="card-title">You are on the latest version!</h3>
+                              <p>The latest version of Tazor is version <code style="background: #4d89d0">1.0.0</code>. You are currently running version <code style="background: #4d89d0">1.0.0</code>, build <code style="background: #4d89d0">development</code>.
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="card" style="height: 100% !important;">
+                            <div class="card-header">
+                              <h4 class="mb-0">Overview</h4><br><br>
+                            </div>
+                            <div class="card-content" ><br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+          </div>
+        </div>
+        <footer class="footer footer-transparent d-print-none">
+          <div class="container-xl">
+            <div class="row text-center align-items-center flex-row-reverse">
+              <div class="col-lg-auto ms-lg-auto">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Powered by Tazor</a></li>
+                </ul>
+              </div>
+              <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    Copyright &copy; 2023
+                    <a href="." class="link-secondary">SRYDEN, Inc</a>.
+                    All rights reserved.
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="./changelog.html" class="link-secondary" rel="noopener">
+                      v1.0.0
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Libs JS -->
+    <script src="../../../app-assets/tabler/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../../../app-assets/tabler/libs/jsvectormap/dist/js/jsvectormap.min.js"></script>
+    <script src="../../../app-assets/tabler/libs/jsvectormap/dist/maps/world.js"></script>
+    <script src="../../../app-assets/tabler/libs/jsvectormap/dist/maps/world-merc.js"></script>
+    <!-- Tabler Core -->
+    <script src="../../../app-assets/tabler/js/tabler.min.js"></script>
+    <script src="../../../app-assets/tabler/js/demo.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+        var path = window.location.pathname;
+        var navLinks = document.querySelectorAll(".navbar-nav a.nav-link");
+        
+        navLinks.forEach(function (link) {
+          var linkHref = link.getAttribute("href");
+
+          if (path === linkHref) {
+            link.parentNode.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

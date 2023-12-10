@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Tazor</title>
+    <!-- CSS files -->
+    <link href="../../../app-assets/tabler/css/tabler.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/tabler-flags.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/tabler-payments.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/tabler-vendors.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/demo.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js" integrity="sha512-2PRgAav8Os8vLcOAh1gSaDoNLe1fAyq8/G3QSdyjFFD+OqNjLeHE/8q4+S4MEZgPsuo+itHopj+hJvqS8XUQ8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css" integrity="sha512-iLYuqv+v/P4u9erpk+KM83Ioe/l7SEmr7wB6g+Kg1qmEit8EShDKnKtLHlv2QXUp7GGJhmqDI+1PhJYLTsfb8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.min.js" integrity="sha512-43J76SR5UijcuJTzs73z8NpkyWon8a8EoV+dX6obqXW7O26Yb268H2vP6EiJjD7sWXqxS3G/YOqPyyLF9fmqgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fit/fit.min.js" integrity="sha512-+wh8VA1djpWk3Dj9/IJDu6Ufi4vVQ0zxLv9Vmfo70AbmYFJm0z3NLnV98vdRKBdPDV4Kwpi7EZdr8mDY9L8JIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.css" integrity="sha512-Uowe00aPyi/0HrMR7lEu5Ot9HPayA6wIBueVcj3sCCbFV2dan8tMs2AbPmjPdHW5iDDjwRFMa5nvIwmOQQ/qaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.js" integrity="sha512-a2UduN5n2FB1FMXX6b+R4EZsC+uEAco4KBuIDstE1Eq3NacUXhxNYeDcR+enLHDJBxrtffgjR6Z7gjx87668mw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/search/search.min.js" integrity="sha512-OkVnWNhmCMHw8pYndhQ+yEMJzD1VrgqF12deRfRcqR6iWL4s8IkxTBwSrJZ2WgpevhD71S68dAqBPHv/VHGDAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/terminado/terminado.min.js" integrity="sha512-TtKncBxqCuka3yQ40VKwx1Jm3cfx1JyWCbRjAFIu7gQ+pvi8b4RwDIbTfmckBi2hpTSdIxxIN2nn23U6tcoboQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/webLinks/webLinks.min.js" integrity="sha512-obszFFlN3K8h7hpqVwXAODf9IOnd1P4PuYRFAwZKTaykxzyMmizo9+eStvrFobjmFs6r6QVsXHMa7ksl34jecg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/zmodem/zmodem.min.js" integrity="sha512-bNnvEr5vJ3m5rknohyD4TK9GIfGYhZU9v8ScE5er0msHAJNnp4UYy+vspakf4xRfrfrQpqORwCpUKL89Dj85mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Space Grotesk', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+    </style>
+  </head>
+<%
+
+    function formatBytes(bytes, decimals = 2) {
+        if (bytes === 0) return '0 Bytes';
+    
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+
+ %>
+  <body data-bs-theme="dark">
+    <div class="page">
+      <!-- Sidebar -->
+      <%- include('../components/Navigation') %>
+      <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  Managing server:
+                </div>
+                <h2 class="page-title">
+                  <%= srvs[0].server.attributes.name %>
+                </h2>
+              </div>
+              <!-- Page title actions -->
+              <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                    <button data-bs-toggle="modal" data-bs-target="#createFile" class="btn btn-primary">Create File</button><button data-bs-toggle="modal" data-bs-target="#createDirectory" class="btn btn-secondary">Create Directory</button><button data-bs-toggle="modal" data-bs-target="#uploadFile" class="btn btn-secondary">SFTP Credentials</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+          <div class="container-xl">
+            <section id="dashboard-analytics">
+                <div class="row">
+                  <% if(cDir == "/") { %>
+                  <div class="col-12">
+                    <div class="card card-md">
+                      <div class="card-stamp card-stamp-lg">
+                        <div class="card-stamp-icon bg-primary">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="height: 80px; width: 80px;">
+                            <path fill-rule="evenodd" d="M19.5 21a3 3 0 003-3V9a3 3 0 00-3-3h-5.379a.75.75 0 01-.53-.22L11.47 3.66A2.25 2.25 0 009.879 3H4.5a3 3 0 00-3 3v12a3 3 0 003 3h15zm-6.75-10.5a.75.75 0 00-1.5 0v4.19l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V10.5z" clip-rule="evenodd" />
+                          </svg>                                         
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row align-items-center">
+                          <div class="col-10">
+                            <h3 class="h1">SFTP</h3>
+                            <div class="markdown text-secondary">
+                              Our file manager is currently quite basic and is not meant for heavy use. We recommend an SFTP client such as
+                              <a href="https://winscp.net/eng/index.php" target="_blank" rel="noopener">WinSCP</a> for connecting to your server's SFTP. Through that, you can do more complex actions such as transferring files.
+                            </div>
+                            <div class="mt-3">
+                              <button data-bs-toggle="modal" data-bs-target="#uploadFile" class="btn btn-primary">SFTP Credentials</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                    <% } %>
+                    <div class="col-12">
+                        <div class="card" style="height: 100% !important;">
+                            <div class="card-header">
+                              <% if(cDir !== "/") { %>
+                              <a href="../../server/<%= req.params.id %>/files" class="btn btn-dark btn-pill" style="width: 60px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                                </svg>                                
+                              </a>
+                              <% } %>
+                              <h4 class="mb-0"><% if(cDir !== "/") { %>&nbsp; &nbsp; &nbsp;<% } %>Directory: <span class="text-muted"><%= "/home/container/"+cDir.slice(1) %></span></h4><br><br>
+                            </div>
+                            <div class="card-content" ><br>
+                                <table class="table table-hover-animation mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>FILES</th>
+                                            <th class="w-1"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(let i = 0; i < files.directories.length; i++) { %>
+                                            <tr>
+                                                <td>
+                                                  <div class="d-flex py-1 align-items-center">
+                                                    <span class="avatar me-2">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                                                      </svg>
+                                                    </span>
+                                                    <div class="flex-fill">
+                                                      <div class="font-weight-medium"><%= files.directories[i] %></div>
+                                                      <div class="text-secondary"><span class="text-reset">Directory</span></div>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="btn-list flex-nowrap">
+                                                    <a href="?directory=<%= cDir.slice(1) + "/" +files.directories[i] %>" class="btn btn-dark btn-pill">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="height: 24px; width: 24px;">
+                                                        <path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z" clip-rule="evenodd" />
+                                                      </svg>                                                      
+                                                    </a>
+                                                  </div>
+                                                </td>
+                                            </tr>
+                                        <% } %>
+                                        <% for(let i = 0; i < files.files.length; i++) { %>
+                                            <tr>
+                                              <td>
+                                                <%
+                                                var fileName = files.files[i];
+                                                var dotIndex = fileName.lastIndexOf('.');
+                                                var fileNameWithoutExtension = dotIndex !== -1 ? fileName.substring(0, dotIndex) : fileName;
+                                                var fileExtension = dotIndex !== -1 ? fileName.substring(dotIndex + 1) : 'txt';
+                                                %>    
+                                                <div class="d-flex py-1 align-items-center">
+                                                  <span class="avatar me-2">
+                                                    <% if (fileExtension == "yml") { %>
+                                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                                                      </svg>        
+                                                    <% } else if (fileExtension == "json") { %>
+                                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                                                      </svg>        
+                                                    <% } else if (fileExtension == "jar") { %>    
+                                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                                                      </svg>        
+                                                    <% } else if (fileExtension == "dat") { %>
+                                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+                                                      </svg>            
+                                                    <% } else if (fileExtension == "dat_old") { %>
+                                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+                                                      </svg>     
+                                                    <% } else if (fileExtension == "properties") { %>
+                                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                                      </svg>                                                                                                                                                                                      
+                                                    <% } else { %>  
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                                                    </svg>                                                    
+                                                    <% } %>                                         
+                                                  </span>                                        
+                                                  <div class="flex-fill">
+                                                    <div class="font-weight-medium"><%= fileNameWithoutExtension %><span class="text-muted">.<%= fileExtension %></span></div>
+                                                    <% if (fileExtension == "yml") { %>
+                                                      <div class="text-secondary"><span class="text-reset">Config (yml)</span></div>  
+                                                    <% } else if (fileExtension == "json") { %>
+                                                      <div class="text-secondary"><span class="text-reset">Config (json)</span></div>       
+                                                    <% } else if (fileExtension == "jar") { %>    
+                                                      <div class="text-secondary"><span class="text-reset">Application (java)</span></div>                      
+                                                    <% } else if (fileExtension == "dat") { %>    
+                                                      <div class="text-secondary"><span class="text-reset">Binary data</span></div>         
+                                                    <% } else if (fileExtension == "dat_old") { %>    
+                                                      <div class="text-secondary"><span class="text-reset">Binary data</span></div>        
+                                                    <% } else if (fileExtension == "properties") { %>    
+                                                      <div class="text-secondary"><span class="text-reset">Properties (java)</span></div>              
+                                                    <% } else if (fileExtension == "txt") { %>    
+                                                      <div class="text-secondary"><span class="text-reset">Text file (txt)</span></div>                                                                         
+                                                    <% } else { %>
+                                                      <div class="text-secondary"><span class="text-reset">Unknown file type</span></div>        
+                                                    <% } %>      
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              
+                                              <td>
+                                                <div class="btn-list flex-nowrap">
+                                                <% if (fileExtension !== "jar") { %>
+                                                  <% if(cDir == "/") { %>
+                                                    <a href="files/edit?file=/<%= files.files[i] %>" class="btn btn-dark btn-pill">
+                                                      Edit
+                                                    </a>
+                                                  <% } else { %>
+                                                    <a href="files/edit?file=<%= cDir %>/<%= files.files[i] %>" class="btn btn-dark btn-pill">
+                                                      Edit
+                                                    </a>
+                                                  <% } %>
+                                                <% } else { %>
+                                                <% } %>
+                                                </div>
+                                              </td>
+                                          </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+          </div>
+        </div>
+        <footer class="footer footer-transparent d-print-none">
+          <div class="container-xl">
+            <div class="row text-center align-items-center flex-row-reverse">
+              <div class="col-lg-auto ms-lg-auto">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Powered by Tazor</a></li>
+                </ul>
+              </div>
+              <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    Copyright &copy; 2023
+                    <a href="." class="link-secondary">SRYDEN, Inc</a>.
+                    All rights reserved.
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="./changelog.html" class="link-secondary" rel="noopener">
+                      v1.0.0
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+ <!-- Alert -->
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<style>
+.alertify-notifier .ajs-message.ajs-success {
+    color: white;
+    padding: 12px 8px;
+/* From https://css.glass */
+background: #1f2f41;
+border-radius: 12px;
+text-align: center;
+font-weight: semibold;
+}
+</style>
+<!-- End Alert -->
+
+    <!-- Create Directory -->
+    <div class="modal modal-blur fade" id="createDirectory" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Create directory</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" name="dirName" id="dirName" placeholder="My directory">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+              Cancel
+            </a>
+            <a href="#" id="createDirectoryBtn" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
+              <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+              Create
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Create File Modal -->
+<div class="modal modal-blur fade" id="createFile" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create File</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">File Name</label>
+          <input type="text" class="form-control" name="fileName" id="fileName" placeholder="file.txt">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Content</label>
+          <textarea type="text" class="form-control" style="height: 30vh !important; font-family: 'Space Mono" name="fileContent" id="fileContent" placeholder="My file content"></textarea>
+        </div>
+        <!-- Additional fields if needed -->
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+          Cancel
+        </a>
+        <a href="#" id="createFileBtn" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
+          <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+          Create
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Upload -->
+    <div class="modal modal-blur fade" id="uploadFile" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">SFTP Credentials</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="uploadForm">
+            <div class="mb-3">
+              <label class="form-label">IP Address:</label>
+              <input type="text" class="form-control" value="sftp://<%= clientDetails.data.attributes.sftp_details.ip %>:<%= clientDetails.data.attributes.sftp_details.port %>" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Username:</label>
+              <input type="text" class="form-control" value="<%= ptero.username %>.<%= srvs[0].server.attributes.identifier %>" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password:</label>
+              <input type="text" class="form-control" value="Your Panel password" disabled>
+            </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+              Dismiss
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        document.getElementById('createDirectoryBtn').addEventListener('click', function () {
+            const name = document.getElementById('dirName').value;
+
+            alertify.set('notifier', 'position', 'bottom-center');
+            alertify.success('Creating...');
+        
+            const data = {
+                root: '<%= '/' + cDir.slice(1) %>',
+                name: name,
+                server: '<%= srvs[0].server.attributes.identifier %>'
+            };
+        
+            const formData = new URLSearchParams();
+            formData.append('root', data.root);
+            formData.append('name', data.name);
+            formData.append('server', data.server);
+        
+            fetch(`http://localhost:9000/server/${data.server}/files/createDirectory`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('There was a problem with the operation:', error);
+            });
+            setTimeout(() => { 
+            alertify.set('notifier', 'position', 'bottom-center');
+            alertify.success('Created directory!');
+            location.reload();
+            }, 1200);
+        });
+        
+        
+    </script>
+        <script>
+          document.getElementById('createFileBtn').addEventListener('click', function () {
+              const name = document.getElementById('fileName').value;
+              const content = document.getElementById('fileContent').value;
+  
+              alertify.set('notifier', 'position', 'bottom-center');
+              alertify.success('Creating...');
+          
+              const data = {
+                  content: content,
+                  file: '<%= '/' + cDir.slice(1) %>/' + name,
+                  server: '<%= srvs[0].server.attributes.identifier %>'
+              };
+          
+              const formData = new URLSearchParams();
+              formData.append('content', data.content);
+              formData.append('file', data.file);
+              formData.append('server', data.server);
+          
+              fetch(`http://localhost:9000/server/${data.server}/files/create`, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded'
+                  },
+                  body: formData
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  console.log(data);
+              })
+              .catch(error => {
+                  console.error('There was a problem with the operation:', error);
+              });
+              setTimeout(() => { 
+              alertify.set('notifier', 'position', 'bottom-center');
+              alertify.success('Created file!');
+              location.reload();
+              }, 1200);
+          });
+          
+          
+      </script>
+
+    <!-- Libs JS -->
+    <script src="../../../app-assets/tabler/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../../../app-assets/tabler/libs/jsvectormap/dist/js/jsvectormap.min.js"></script>
+    <script src="../../../app-assets/tabler/libs/jsvectormap/dist/maps/world.js"></script>
+    <script src="../../../app-assets/tabler/libs/jsvectormap/dist/maps/world-merc.js"></script>
+    <!-- Tabler Core -->
+    <script src="../../../app-assets/tabler/js/tabler.min.js"></script>
+    <script src="../../../app-assets/tabler/js/demo.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+        var path = window.location.pathname;
+        var navLinks = document.querySelectorAll(".navbar-nav a.nav-link");
+        
+        navLinks.forEach(function (link) {
+          var linkHref = link.getAttribute("href");
+
+          if (path === linkHref) {
+            link.parentNode.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

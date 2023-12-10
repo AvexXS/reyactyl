@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Tazor</title>
+    <!-- CSS files -->
+    <link href="../../../app-assets/tabler/css/tabler.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/tabler-flags.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/tabler-payments.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/tabler-vendors.min.css" rel="stylesheet"/>
+    <link href="../../../app-assets/tabler/css/demo.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Space Grotesk', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+    </style>
+  </head>
+  <body data-bs-theme="dark">
+    <div class="page">
+      <!-- Sidebar -->
+      <%- include('../components/navigation-admin') %>
+      <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  Admin area
+                </div>
+                <h2 class="page-title">
+                  Users
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+          <div class="container-xl">
+            <section id="dashboard-analytics">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="card" style="height: 100% !important;">
+                            <div class="card-header">
+                              <h4 class="mb-0">Users</h4><br><br>
+                            </div>
+                            <div class="card-content" ><br>
+                                <table class="table table-hover-animation mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>USER</th>
+                                            <th>EMAIL</th>
+                                            <th>ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(let i = 0; i < users.length; i++) { %>
+                                            <tr>
+                                              <td>
+                                                <div class="d-flex py-1 align-items-center">
+                                                  <span class="avatar me-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                                                    </svg>                                                                                                                                                                       
+                                                  </span>                                        
+                                                  <div class="flex-fill">
+                                                    <div class="font-weight-medium"><%= users[i].first_name %> <%= users[i].last_name %></div>
+                                                    <div class="text-secondary"><%= users[i].username %></div>  
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <div class="flex-fill">
+                                                    <div class="font-weight-medium">Email:</div>
+                                                    <div class="text-secondary"><%= users[i].email %></div> 
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <div class="flex-fill">
+                                                    <div class="font-weight-medium">User ID:</div>
+                                                    <div class="text-secondary"><%= users[i].id %></div>  
+                                                </div>
+                                              </td>
+                                          </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+          </div>
+        </div>
+        <footer class="footer footer-transparent d-print-none">
+          <div class="container-xl">
+            <div class="row text-center align-items-center flex-row-reverse">
+              <div class="col-lg-auto ms-lg-auto">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Powered by Tazor</a></li>
+                </ul>
+              </div>
+              <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    Copyright &copy; 2023
+                    <a href="." class="link-secondary">SRYDEN, Inc</a>.
+                    All rights reserved.
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="./changelog.html" class="link-secondary" rel="noopener">
+                      v1.0.0
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Libs JS -->
+    <script src="../../../app-assets/tabler/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../../../app-assets/tabler/libs/jsvectormap/dist/js/jsvectormap.min.js"></script>
+    <script src="../../../app-assets/tabler/libs/jsvectormap/dist/maps/world.js"></script>
+    <script src="../../../app-assets/tabler/libs/jsvectormap/dist/maps/world-merc.js"></script>
+    <!-- Tabler Core -->
+    <script src="../../../app-assets/tabler/js/tabler.min.js"></script>
+    <script src="../../../app-assets/tabler/js/demo.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+        var path = window.location.pathname;
+        var navLinks = document.querySelectorAll(".navbar-nav a.nav-link");
+        
+        navLinks.forEach(function (link) {
+          var linkHref = link.getAttribute("href");
+
+          if (path === linkHref) {
+            link.parentNode.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
