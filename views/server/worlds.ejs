@@ -11,6 +11,17 @@
     <link href="../../../app-assets/tabler/css/tabler-payments.min.css" rel="stylesheet"/>
     <link href="../../../app-assets/tabler/css/tabler-vendors.min.css" rel="stylesheet"/>
     <link href="../../../app-assets/tabler/css/demo.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js" integrity="sha512-2PRgAav8Os8vLcOAh1gSaDoNLe1fAyq8/G3QSdyjFFD+OqNjLeHE/8q4+S4MEZgPsuo+itHopj+hJvqS8XUQ8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css" integrity="sha512-iLYuqv+v/P4u9erpk+KM83Ioe/l7SEmr7wB6g+Kg1qmEit8EShDKnKtLHlv2QXUp7GGJhmqDI+1PhJYLTsfb8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.min.js" integrity="sha512-43J76SR5UijcuJTzs73z8NpkyWon8a8EoV+dX6obqXW7O26Yb268H2vP6EiJjD7sWXqxS3G/YOqPyyLF9fmqgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fit/fit.min.js" integrity="sha512-+wh8VA1djpWk3Dj9/IJDu6Ufi4vVQ0zxLv9Vmfo70AbmYFJm0z3NLnV98vdRKBdPDV4Kwpi7EZdr8mDY9L8JIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.css" integrity="sha512-Uowe00aPyi/0HrMR7lEu5Ot9HPayA6wIBueVcj3sCCbFV2dan8tMs2AbPmjPdHW5iDDjwRFMa5nvIwmOQQ/qaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.js" integrity="sha512-a2UduN5n2FB1FMXX6b+R4EZsC+uEAco4KBuIDstE1Eq3NacUXhxNYeDcR+enLHDJBxrtffgjR6Z7gjx87668mw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/search/search.min.js" integrity="sha512-OkVnWNhmCMHw8pYndhQ+yEMJzD1VrgqF12deRfRcqR6iWL4s8IkxTBwSrJZ2WgpevhD71S68dAqBPHv/VHGDAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/terminado/terminado.min.js" integrity="sha512-TtKncBxqCuka3yQ40VKwx1Jm3cfx1JyWCbRjAFIu7gQ+pvi8b4RwDIbTfmckBi2hpTSdIxxIN2nn23U6tcoboQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/webLinks/webLinks.min.js" integrity="sha512-obszFFlN3K8h7hpqVwXAODf9IOnd1P4PuYRFAwZKTaykxzyMmizo9+eStvrFobjmFs6r6QVsXHMa7ksl34jecg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/zmodem/zmodem.min.js" integrity="sha512-bNnvEr5vJ3m5rknohyD4TK9GIfGYhZU9v8ScE5er0msHAJNnp4UYy+vspakf4xRfrfrQpqORwCpUKL89Dj85mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -24,10 +35,26 @@
       }
     </style>
   </head>
+<%
+
+    function formatBytes(bytes, decimals = 2) {
+        if (bytes === 0) return '0 Bytes';
+    
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+
+ %>
   <body data-bs-theme="dark">
     <div class="page">
       <!-- Sidebar -->
-      <%- include('../components/navigation-admin') %>
+      <%- include('../components/Navigation') %>
       <div class="page-wrapper">
         <!-- Page header -->
         <div class="page-header d-print-none">
@@ -36,11 +63,10 @@
               <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                  Admin area
+                  Managing server:
                 </div>
                 <h2 class="page-title">
-                  Nodes
-                  
+                  <%= srvs[0].server.attributes.name %>
                 </h2>
               </div>
             </div>
@@ -51,37 +77,32 @@
           <div class="container-xl">
             <section id="dashboard-analytics">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-12">
                         <div class="card" style="height: 100% !important;">
-                            <div class="card-header w-full">
-                              <h4 class="mb-0">Nodes</h4><br><br>
-                              <a href="#" class="right-0 btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-                                Create server
-                              </a>
+                            <div class="card-header">
+                              <h4 class="mb-0">Worlds</h4><br><br>
                             </div>
                             <div class="card-content" ><br>
                                 <table class="table table-hover-animation mb-0">
                                     <thead>
                                         <tr>
-                                            <th>NODES</th>
+                                            <th>WORLDS</th>
                                             <th class="w-1"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <% for(let i = 0; i < nodes.length; i++) { %>
+                                        <% for(let i = 0; i < files.directories.length; i++) { %>
                                             <tr>
                                               <td>
                                                 <div class="d-flex py-1 align-items-center">
                                                   <span class="avatar me-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px;">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 00-.12-1.03l-2.268-9.64a3.375 3.375 0 00-3.285-2.602H7.923a3.375 3.375 0 00-3.285 2.602l-2.268 9.64a4.5 4.5 0 00-.12 1.03v.228m19.5 0a3 3 0 01-3 3H5.25a3 3 0 01-3-3m19.5 0a3 3 0 00-3-3H5.25a3 3 0 00-3 3m16.5 0h.008v.008h-.008v-.008zm-3 0h.008v.008h-.008v-.008z" />
-                                                    </svg>                                                                                                                         
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.893 13.393l-1.135-1.135a2.252 2.252 0 01-.421-.585l-1.08-2.16a.414.414 0 00-.663-.107.827.827 0 01-.812.21l-1.273-.363a.89.89 0 00-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.212.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 01-1.81 1.025 1.055 1.055 0 01-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.655-.261a2.25 2.25 0 01-1.383-2.46l.007-.042a2.25 2.25 0 01.29-.787l.09-.15a2.25 2.25 0 012.37-1.048l1.178.236a1.125 1.125 0 001.302-.795l.208-.73a1.125 1.125 0 00-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 01-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 01-1.458-1.137l1.411-2.353a2.25 2.25 0 00.286-.76m11.928 9.869A9 9 0 008.965 3.525m11.928 9.868A9 9 0 118.965 3.525" />
+                                                    </svg>                                                                                                                            
                                                   </span>                                        
                                                   <div class="flex-fill">
-                                                    <div class="font-weight-medium"><%= nodes[i].name %> <span class="text-muted">- <%= nodes[i].memory/1024 %> GiB RAM</span></div>
-                                                    <div class="text-secondary"><a class="text-success" href="">Online</a></div>  
+                                                    <div class="font-weight-medium"><%= files.directories[i] %></div>
+                                                    <% if (files.directories[i] == "world") { %><div class="text-secondary"><a href="">Primary</a></div><% } %>     
                                                   </div>
                                                 </div>
                                               </td>
