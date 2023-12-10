@@ -5,9 +5,9 @@ const db = require('../handlers/Database');
 
 const settings = {
     "ptero": {
-        "url": "https://panel.halex.gg",
-        "clientKey": "ptlc_wAttzVUauSTIBV2k8o7rPAPiHMhrf3nBvXXwcZ8gSlI",
-        "adminKey": "ptla_ZvRN3JASV0Txzqh02iNlO7vJrTBnDJDNLQMWQIFXHeV"
+        "url": "https://dev.redstone.sh",
+        "clientKey": "ptlc_8BOhZYNwZpELgkl3TkRAcnCr2X5wm6KzSMR8k7cZqXS",
+        "adminKey": "ptla_lCoK2bSbxe7rbCO3u9fRb0oZGk4Hr05j3thJsYN9YzA"
     }
 };
 
