@@ -1,21 +1,20 @@
 const express = require('express');
 const axios = require('axios');
-const { WebSocket } = require('ws');
 const db = require('../handlers/Database');
 
-const multer = require('multer'); // Add multer for handling file uploads
-const { v4: uuidv4 } = require('uuid');
+// Settings JSON file
+const config = require('../settings.json');
 
+// Configuration settings
 const settings = {
     "ptero": {
-        "url": "https://dev.redstone.sh",
-        "clientKey": "ptlc_8BOhZYNwZpELgkl3TkRAcnCr2X5wm6KzSMR8k7cZqXS",
-        "adminKey": "ptla_lCoK2bSbxe7rbCO3u9fRb0oZGk4Hr05j3thJsYN9YzA"
+        "url": config.pterodactyl.url,
+        "clientKey": config.pterodactyl.clientKey,
+        "adminKey": config.pterodactyl.adminKey
     }
 };
 
 const router = express.Router();
-const upload = multer();
 
 async function handleError(res, err) {
     console.error(err);

@@ -1,5 +1,5 @@
 {
-    "/login": "login.ejs",
+    "/auth": "auth.ejs",
     "/account": "account.ejs",
     "/network": "network.ejs"
 }

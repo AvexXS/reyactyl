@@ -1,40 +1,45 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Tazor</title>
-  
-    <link href="../../../app-assets/tabler/css/tabler.min.css" rel="stylesheet"/>
-    <link href="../../../app-assets/tabler/css/tabler-flags.min.css" rel="stylesheet"/>
-    <link href="../../../app-assets/tabler/css/tabler-payments.min.css" rel="stylesheet"/>
-    <link href="../../../app-assets/tabler/css/tabler-vendors.min.css" rel="stylesheet"/>
-    <link href="../../../app-assets/tabler/css/demo.min.css" rel="stylesheet"/>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js" integrity="sha512-2PRgAav8Os8vLcOAh1gSaDoNLe1fAyq8/G3QSdyjFFD+OqNjLeHE/8q4+S4MEZgPsuo+itHopj+hJvqS8XUQ8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css" integrity="sha512-iLYuqv+v/P4u9erpk+KM83Ioe/l7SEmr7wB6g+Kg1qmEit8EShDKnKtLHlv2QXUp7GGJhmqDI+1PhJYLTsfb8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.min.js" integrity="sha512-43J76SR5UijcuJTzs73z8NpkyWon8a8EoV+dX6obqXW7O26Yb268H2vP6EiJjD7sWXqxS3G/YOqPyyLF9fmqgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fit/fit.min.js" integrity="sha512-+wh8VA1djpWk3Dj9/IJDu6Ufi4vVQ0zxLv9Vmfo70AbmYFJm0z3NLnV98vdRKBdPDV4Kwpi7EZdr8mDY9L8JIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.css" integrity="sha512-Uowe00aPyi/0HrMR7lEu5Ot9HPayA6wIBueVcj3sCCbFV2dan8tMs2AbPmjPdHW5iDDjwRFMa5nvIwmOQQ/qaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.js" integrity="sha512-a2UduN5n2FB1FMXX6b+R4EZsC+uEAco4KBuIDstE1Eq3NacUXhxNYeDcR+enLHDJBxrtffgjR6Z7gjx87668mw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/search/search.min.js" integrity="sha512-OkVnWNhmCMHw8pYndhQ+yEMJzD1VrgqF12deRfRcqR6iWL4s8IkxTBwSrJZ2WgpevhD71S68dAqBPHv/VHGDAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/terminado/terminado.min.js" integrity="sha512-TtKncBxqCuka3yQ40VKwx1Jm3cfx1JyWCbRjAFIu7gQ+pvi8b4RwDIbTfmckBi2hpTSdIxxIN2nn23U6tcoboQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/webLinks/webLinks.min.js" integrity="sha512-obszFFlN3K8h7hpqVwXAODf9IOnd1P4PuYRFAwZKTaykxzyMmizo9+eStvrFobjmFs6r6QVsXHMa7ksl34jecg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/zmodem/zmodem.min.js" integrity="sha512-bNnvEr5vJ3m5rknohyD4TK9GIfGYhZU9v8ScE5er0msHAJNnp4UYy+vspakf4xRfrfrQpqORwCpUKL89Dj85mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.css" integrity="sha512-Uowe00aPyi/0HrMR7lEu5Ot9HPayA6wIBueVcj3sCCbFV2dan8tMs2AbPmjPdHW5iDDjwRFMa5nvIwmOQQ/qaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Polaris</title>
+
+  <link href="../../../app-assets/tabler/css/tabler.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../app-assets/tailwind.css">
+  <link href="../../../app-assets/tabler/css/tabler-flags.min.css" rel="stylesheet" />
+  <link href="../../../app-assets/tabler/css/tabler-payments.min.css" rel="stylesheet" />
+  <link href="../../../app-assets/tabler/css/tabler-vendors.min.css" rel="stylesheet" />
+  <link href="../../../app-assets/tabler/css/demo.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js" integrity="sha512-2PRgAav8Os8vLcOAh1gSaDoNLe1fAyq8/G3QSdyjFFD+OqNjLeHE/8q4+S4MEZgPsuo+itHopj+hJvqS8XUQ8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css" integrity="sha512-iLYuqv+v/P4u9erpk+KM83Ioe/l7SEmr7wB6g+Kg1qmEit8EShDKnKtLHlv2QXUp7GGJhmqDI+1PhJYLTsfb8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.min.js" integrity="sha512-43J76SR5UijcuJTzs73z8NpkyWon8a8EoV+dX6obqXW7O26Yb268H2vP6EiJjD7sWXqxS3G/YOqPyyLF9fmqgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fit/fit.min.js" integrity="sha512-+wh8VA1djpWk3Dj9/IJDu6Ufi4vVQ0zxLv9Vmfo70AbmYFJm0z3NLnV98vdRKBdPDV4Kwpi7EZdr8mDY9L8JIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.css" integrity="sha512-Uowe00aPyi/0HrMR7lEu5Ot9HPayA6wIBueVcj3sCCbFV2dan8tMs2AbPmjPdHW5iDDjwRFMa5nvIwmOQQ/qaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.js" integrity="sha512-a2UduN5n2FB1FMXX6b+R4EZsC+uEAco4KBuIDstE1Eq3NacUXhxNYeDcR+enLHDJBxrtffgjR6Z7gjx87668mw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/search/search.min.js" integrity="sha512-OkVnWNhmCMHw8pYndhQ+yEMJzD1VrgqF12deRfRcqR6iWL4s8IkxTBwSrJZ2WgpevhD71S68dAqBPHv/VHGDAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/terminado/terminado.min.js" integrity="sha512-TtKncBxqCuka3yQ40VKwx1Jm3cfx1JyWCbRjAFIu7gQ+pvi8b4RwDIbTfmckBi2hpTSdIxxIN2nn23U6tcoboQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/webLinks/webLinks.min.js" integrity="sha512-obszFFlN3K8h7hpqVwXAODf9IOnd1P4PuYRFAwZKTaykxzyMmizo9+eStvrFobjmFs6r6QVsXHMa7ksl34jecg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/zmodem/zmodem.min.js" integrity="sha512-bNnvEr5vJ3m5rknohyD4TK9GIfGYhZU9v8ScE5er0msHAJNnp4UYy+vspakf4xRfrfrQpqORwCpUKL89Dj85mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/fullscreen/fullscreen.min.css" integrity="sha512-Uowe00aPyi/0HrMR7lEu5Ot9HPayA6wIBueVcj3sCCbFV2dan8tMs2AbPmjPdHW5iDDjwRFMa5nvIwmOQQ/qaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-      @import url('https://rsms.me/inter/inter.css');
-      :root {
-      	--tblr-font-sans-serif: 'Space Grotesk', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
-      }
-      body {
-      	font-feature-settings: "cv03", "cv04", "cv11";
-      }
-    </style>
-  </head>
+    @import url('https://rsms.me/inter/inter.css');
+
+    :root {
+      --tblr-font-sans-serif: 'Space Grotesk', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    }
+
+    body {
+      font-feature-settings: "cv03", "cv04", "cv11";
+    }
+  </style>
+</head>
 <%
 
     function formatBytes(bytes, decimals = 2) {
@@ -51,25 +56,26 @@
 
 
  %>
-  <body data-bs-theme="dark">
-    <div class="page">
-      <%- include('../components/Navigation') %>
-      <div class="page-wrapper">
-       <!-- Alert -->
-<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-<style>
-.alertify-notifier .ajs-message.ajs-success {
-    color: white;
-    padding: 12px 8px;
-/* From https://css.glass */
-background: #182433;
-border-radius: 12px;
-text-align: center;
-font-weight: semibold;
-}
-</style>
-<!-- End Alert -->
+
+<body data-bs-theme="light">
+  <div class="page" style="background: #f3f4f6 !important">
+    <%- include('../components/Navigation') %>
+    <div class="page-wrapper md:pl-48 lg:pl-48">
+      <!-- Alert -->
+      <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+      <style>
+        .alertify-notifier .ajs-message.ajs-success {
+          color: #1b1b1b;
+          padding: 12px 8px;
+          /* From https://css.glass */
+          background: #ffffff;
+          border-radius: 12px;
+          text-align: center;
+          font-weight: semibold;
+        }
+      </style>
+      <!-- End Alert -->
 
       <div class="page-wrapper">
         <!-- Page header -->
@@ -79,7 +85,7 @@ font-weight: semibold;
               <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                  Managing server:
+                  Managing instance:
                 </div>
                 <h2 class="page-title">
                   <%= srvs[0].server.attributes.name %>
@@ -88,138 +94,138 @@ font-weight: semibold;
               <!-- Page title actions -->
               <div class="col-auto ms-auto d-print-none">
                 <div id="buttons" style="display: block" class="btn-list">
-                    <button id="startButton" class="btn btn-primary">Start</button> &nbsp; <button id="restartButton" class="btn btn-secondary">Restart</button> &nbsp; <button id="stopButton" class="btn btn-danger">Stop</button>
+                  <button id="startButton" class="btn btn-dark">Start</button> &nbsp; <button id="restartButton" class="btn btn-secondary">Restart</button> &nbsp; <button id="stopButton" class="btn btn-danger">Stop</button>
                 </div>
                 <script>
-                  document.getElementById('startButton').addEventListener('click', function () {
-                      const data = {
-                          server: '<%= srvs[0].server.attributes.identifier %>'
-                      };
-                  
-                      const formData = new URLSearchParams();
-                      formData.append('server', data.server);
-                  
-                      fetch(`http://localhost:9000/server/${data.server}/start`, {
-                          method: 'POST',
-                          headers: {
-                              'Content-Type': 'application/x-www-form-urlencoded'
-                          },
-                          body: formData
+                  document.getElementById('startButton').addEventListener('click', function() {
+                    const data = {
+                      server: '<%= srvs[0].server.attributes.identifier %>'
+                    };
+
+                    const formData = new URLSearchParams();
+                    formData.append('server', data.server);
+
+                    fetch(`https://beta.polarisnode.com/server/${data.server}/start`, {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: formData
                       })
                       .then(response => {
-                          if (!response.ok) {
-                              throw new Error('Network response was not ok');
-                          }
-                          return response.json();
+                        if (!response.ok) {
+                          throw new Error('Network response was not ok');
+                        }
+                        return response.json();
                       })
                       .then(data => {
-                          console.log(data);
+                        console.log(data);
                       })
                       .catch(error => {
-                          console.error('There was a problem with the  operation:', error);
-                          alertify.set('notifier', 'position', 'bottom-center');
-                          alertify.success('Internal Error');
+                        console.error('There was a problem with the  operation:', error);
+                        alertify.set('notifier', 'position', 'bottom-center');
+                        alertify.success('Internal Error');
                       });
-                      setTimeout(() => { 
+                    setTimeout(() => {
                       alertify.set('notifier', 'position', 'bottom-center');
                       alertify.success('Started server');
                       var statusSpan = document.getElementById("status");
                       statusSpan.innerHTML = '<i class="fa fa-circle font-small-3 text-warning mr-50"></i> &nbsp;Starting';
-                    
-                      }, 1200);
 
-                      setTimeout(() => { 
+                    }, 1200);
+
+                    setTimeout(() => {
                       var statusSpan = document.getElementById("status");
                       statusSpan.innerHTML = '<i class="fa fa-circle font-small-3 text-success mr-50"></i> &nbsp;Online';
                     }, 5600);
                   });
 
-                  document.getElementById('stopButton').addEventListener('click', function () {
-                      const data = {
-                          server: '<%= srvs[0].server.attributes.identifier %>'
-                      };
-                  
-                      const formData = new URLSearchParams();
-                      formData.append('server', data.server);
-                  
-                      fetch(`http://localhost:9000/server/${data.server}/stop`, {
-                          method: 'POST',
-                          headers: {
-                              'Content-Type': 'application/x-www-form-urlencoded'
-                          },
-                          body: formData
+                  document.getElementById('stopButton').addEventListener('click', function() {
+                    const data = {
+                      server: '<%= srvs[0].server.attributes.identifier %>'
+                    };
+
+                    const formData = new URLSearchParams();
+                    formData.append('server', data.server);
+
+                    fetch(`https://beta.polarisnode.com/server/${data.server}/stop`, {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: formData
                       })
                       .then(response => {
-                          if (!response.ok) {
-                              throw new Error('Network response was not ok');
-                          }
-                          return response.json();
+                        if (!response.ok) {
+                          throw new Error('Network response was not ok');
+                        }
+                        return response.json();
                       })
                       .then(data => {
-                          console.log(data);
+                        console.log(data);
                       })
                       .catch(error => {
-                          console.error('There was a problem with the  operation:', error);
-                          alertify.set('notifier', 'position', 'bottom-center');
-                          alertify.success('Internal Error');
+                        console.error('There was a problem with the  operation:', error);
+                        alertify.set('notifier', 'position', 'bottom-center');
+                        alertify.success('Internal Error');
                       });
-                      setTimeout(() => { 
+                    setTimeout(() => {
                       alertify.set('notifier', 'position', 'bottom-center');
                       alertify.success('Stopped server');
                       var statusSpan = document.getElementById("status");
                       statusSpan.innerHTML = '<i class="fa fa-circle font-small-3 text-danger mr-50"></i> &nbsp;Offline';
-                      }, 1200);
+                    }, 1200);
                   });
 
-                  document.getElementById('restartButton').addEventListener('click', function () {
-                      const data = {
-                          server: '<%= srvs[0].server.attributes.identifier %>'
-                      };
-                  
-                      const formData = new URLSearchParams();
-                      formData.append('server', data.server);
-                  
-                      fetch(`http://localhost:9000/server/${data.server}/restart`, {
-                          method: 'POST',
-                          headers: {
-                              'Content-Type': 'application/x-www-form-urlencoded'
-                          },
-                          body: formData
+                  document.getElementById('restartButton').addEventListener('click', function() {
+                    const data = {
+                      server: '<%= srvs[0].server.attributes.identifier %>'
+                    };
+
+                    const formData = new URLSearchParams();
+                    formData.append('server', data.server);
+
+                    fetch(`https://beta.polarisnode.com/server/${data.server}/restart`, {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: formData
                       })
                       .then(response => {
-                          if (!response.ok) {
-                              throw new Error('Network response was not ok');
-                          }
-                          return response.json();
+                        if (!response.ok) {
+                          throw new Error('Network response was not ok');
+                        }
+                        return response.json();
                       })
                       .then(data => {
-                          console.log(data);
+                        console.log(data);
                       })
                       .catch(error => {
-                          console.error('There was a problem with the  operation:', error);
-                          alertify.set('notifier', 'position', 'bottom-center');
-                          alertify.success('Internal Error');
+                        console.error('There was a problem with the  operation:', error);
+                        alertify.set('notifier', 'position', 'bottom-center');
+                        alertify.success('Internal Error');
                       });
-                      setTimeout(() => { 
+                    setTimeout(() => {
                       alertify.set('notifier', 'position', 'bottom-center');
                       alertify.success('Restarted server');
                       var statusSpan = document.getElementById("status");
                       statusSpan.innerHTML = '<i class="fa fa-circle font-small-3 text-danger mr-50"></i> &nbsp;Offline';
-                    
-                      }, 1200);
 
-                      setTimeout(() => { 
+                    }, 1200);
+
+                    setTimeout(() => {
                       var statusSpan = document.getElementById("status");
                       statusSpan.innerHTML = '<i class="fa fa-circle font-small-3 text-warning mr-50"></i> &nbsp;Starting';
                     }, 8000);
 
-                    
-                    setTimeout(() => { 
+
+                    setTimeout(() => {
                       var statusSpan = document.getElementById("status");
                       statusSpan.innerHTML = '<i class="fa fa-circle font-small-3 text-success mr-50"></i> &nbsp;Online';
                     }, 17000);
                   });
-                  </script>
+                </script>
               </div>
             </div>
           </div>
@@ -231,190 +237,196 @@ font-weight: semibold;
               <div class="d-flex">
                 <div>
                   <!-- Download SVG icon from http://tabler-icons.io/i/alert-circle -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+                    <path d="M12 8v4"></path>
+                    <path d="M12 16h.01"></path>
+                  </svg>
                 </div>
                 <div>
-                  Unable to connect to the WebSocket. The Panel may not function properly.
+                  Unable to connect to the WebSocket. Skyport may not function properly.
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-8">
-                  <div class="card">
-                      <div class="card-header">
-                          <h4 class="mb-0">Console</h4><br><br>
-                      </div>
-                      <div class="card-content">
-                          <div style="padding-left: 24px; padding-right: 24px; padding-bottom: 24px; padding-top: 24px;" id="terminal"></div>
-                          <script>
-                              const ws = new WebSocket(`ws://localhost:9000/server/<%= req.params.id %>`);
-          
-                              var baseTheme = {
-                             foreground: '#F8F8F8',
-                             background: '#182433',
-    selection: '#5DA5D533',
-    black: '#1E1E1D',
-    brightBlack: '#262625',
-    red: '#CE5C5C',
-    brightRed: '#FF7272',
-    green: '#5BCC5B',
-    brightGreen: '#72FF72',
-    yellow: '#CCCC5B',
-    brightYellow: '#FFFF72',
-    blue: '#5D5DD3',
-    brightBlue: '#7279FF',
-    magenta: '#BC5ED1',
-    brightMagenta: '#E572FF',
-    cyan: '#5DA5D5',
-    brightCyan: '#72F0FF',
-    white: '#F8F8F8',
-    brightWhite: '#FFFFFF'
-  };
-                                        var term = new Terminal({
-    fontFamily: '"Space Mono", Menlo, monospace',
-    theme: baseTheme,
-    cursorBlink: true,
-  });
-          
-                              term.open(document.getElementById('terminal'));
-          
-                              let command = "";
-                              term.onData(e => {
-                                  switch (e) {
-                                      case '\u0003': // Ctrl+C
-                                          term.write('^C');
-                                          break;
-                                      case '\r': // Enter
-                                          ws.send(`${command}\n`);
-                                          command = '';
-                                          term.write('\n\rcontainer@tazor ~ ');
-                                          break;
-                                      case '\u007F': // Backspace (DEL)
-                                          if (command.length > 0) {
-                                              command = command.substr(0, command.length - 1);
-                                              term.write('\b \b');
-                                          }
-                                          break;
-                                      default:
-                                          if (e >= String.fromCharCode(0x20) && e <= String.fromCharCode(0x7E) || e >= '\u00a0') {
-                                              command += e;
-                                              term.write(e);
-                                          }
-                                  }
-                              });
-          
-                              ws.onmessage = msg => {
-                                  let d = JSON.parse(msg.data);
-                                  if (d.event == "console") {
-                                      let modifiedData = d.data.replace('[Pterodactyl Daemon]', '[Tazor Daemon]');
-                                      modifiedData = modifiedData.replace('container@pterodactyl ~', 'container@tazor ~');
-                                      term.write(modifiedData + "\n\r");
-                                      term.write('');
-                                  }
-                              };
-          
-                              ws.onopen = () => {
-                                term.write('\rcontainer@tazor ~ ')
-                            
-                              };
-          
-                              ws.onclose = () => {
-                                  document.getElementById('uhoh').style.display = 'block';
-                                  document.getElementById('buttons').style.display = 'none';
-                              };
-                          </script>
-                      </div>
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="mb-0">Console</h4><br><br>
                   </div>
+                  <div class="card-content">
+                    <div class="bg-[#1d2228] rounded-2xl p-2 mx-3 my-3">
+                      <div style="padding-left: 24px; padding-right: 24px; padding-bottom: 24px; padding-top: 24px;" id="terminal"></div>
+                    </div>
+                    <script>
+                      const ws = new WebSocket(`ws://beta.polarisnode.com/server/<%= req.params.id %>`);
+
+                      var baseTheme = {
+                        foreground: '#F8F8F8',
+                        background: '#1d2228',
+                        selection: '#5DA5D533',
+                        black: '#1E1E1D',
+                        brightBlack: '#262625',
+                        red: '#CE5C5C',
+                        brightRed: '#FF7272',
+                        green: '#5BCC5B',
+                        brightGreen: '#72FF72',
+                        yellow: '#CCCC5B',
+                        brightYellow: '#FFFF72',
+                        blue: '#5D5DD3',
+                        brightBlue: '#7279FF',
+                        magenta: '#BC5ED1',
+                        brightMagenta: '#E572FF',
+                        cyan: '#5DA5D5',
+                        brightCyan: '#72F0FF',
+                        white: '#F8F8F8',
+                        brightWhite: '#FFFFFF'
+                      };
+                      var term = new Terminal({
+                        fontFamily: '"Space Mono", Menlo, monospace',
+                        theme: baseTheme,
+                        cursorBlink: true,
+                      });
+
+                      term.open(document.getElementById('terminal'));
+
+                      let command = "";
+                      term.onData(e => {
+                        switch (e) {
+                          case '\u0003': // Ctrl+C
+                            term.write('^C');
+                            break;
+                          case '\r': // Enter
+                            ws.send(`${command}\n`);
+                            command = '';
+                            break;
+                          case '\u007F': // Backspace (DEL)
+                            if (command.length > 0) {
+                              command = command.substr(0, command.length - 1);
+                              term.write('\b \b');
+                            }
+                            break;
+                          default:
+                            if (e >= String.fromCharCode(0x20) && e <= String.fromCharCode(0x7E) || e >= '\u00a0') {
+                              command += e;
+                              term.write(e);
+                            }
+                        }
+                      });
+
+                      ws.onmessage = msg => {
+                        let d = JSON.parse(msg.data);
+                        if (d.event == "console") {
+                          let modifiedData = d.data.replace('[Pterodactyl Daemon]', 'daemon@skyport ~');
+                          modifiedData = modifiedData.replace('container@pterodactyl~', 'container@skyport ~');
+                          term.write(modifiedData + "\n\r");
+                          term.write('');
+                        }
+                      };
+
+                      ws.onopen = () => {
+                        term.write('\rcontainer@skyport ~');
+
+                      };
+
+                      ws.onclose = () => {
+                        document.getElementById('uhoh').style.display = 'block';
+                        document.getElementById('buttons').style.display = 'none';
+                      };
+                    </script>
+                  </div>
+                </div>
               </div>
-            
-          
 
-                        <!-- START RESOURCES BIT -->
 
-                        <div class="col-4">
-                            <% let srvCR = srvs[0].resources %>
-                            <% let srvC = srvs[0].server %>
-                            <div class="row row-deck row-cards">
-                              <div class="col-sm-6 col-lg-12">
-                                <div class="card">
-                                  <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                      <div class="h2 mb-3">Status</div>
-                                    </div>
-                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-                                  <span id="status">
-                                  <% if(srvCR.current_state == "offline") { %>
-                                      <i class="fa fa-circle font-small-3 text-danger mr-50"></i> &nbsp;Offline
-                                  <% }else if(srvCR.current_state == "starting") { %>
-                                      <i class="fa fa-circle font-small-3 text-warning mr-50"></i> &nbsp;Starting
-                                  <% }else if(srvCR.current_state == "running") { %>
-                                      <i class="fa fa-circle font-small-3 text-success mr-50"></i> &nbsp;Online
-                                  <% } %>
-                                  </span>
-                                  </h5><br>
-                                  </div>
-                                </div>
-                              </div>
-                            </div><br>
-                            <div class="row row-deck row-cards">
-                                <div class="col-sm-6 col-lg-6">
-                                  <div class="card">
-                                    <div class="card-body">
-                                      <div class="d-flex align-items-center">
-                                        <div class="h2 mb-3">CPU</div>
-                                      </div>
-                                      <div class="h4 text-secondary"><%= srvCR.resources.cpu_absolute.toFixed(2) %> / <%= (srvC.attributes.limits.cpu).toFixed(2) %> %</div>
-                                      <div class="progress progress-sm">
-                                        <div class="progress-bar bg-primary" style="width: <%= (srvCR.resources.cpu_absolute.toFixed(2) / srvC.attributes.limits.cpu) * 100 %>%" role="progressbar"></div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-6">
-                                  <div class="card">
-                                    <div class="card-body">
-                                      <div class="d-flex align-items-center">
-                                        <div class="h2">RAM</div>
-                                      </div>
-                                      <div class="h4 text-secondary"><%= (srvCR.resources.memory_bytes / (102400*10240)).toFixed(2) %> / <%= (srvC.attributes.limits.memory/1024).toFixed(2) %> GiB </div>
-                                      <div class="progress progress-sm">
-                                        <div class="progress-bar bg-primary" style="width: <%= (srvCR.resources.memory_bytes / (1024 * 1024)).toFixed(2) / srvC.attributes.limits.memory * 100 %>%" role="progressbar" aria-valuenow="<%= (srvCR.resources.memory_bytes / (1024 * 1024)).toFixed(2) / srvC.attributes.limits.memory * 100 %>" aria-valuemin="0" aria-valuemax="100"></div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div><br>
-                              <div class="row row-deck row-cards">
-                                <div class="col-sm-6 col-lg-12">
-                                  <div class="card">
-                                    <div class="card-body">
-                                      <div class="d-flex align-items-center">
-                                        <div class="h2 mb-3">Storage</div>
-                                      </div>
-                                      <div class="h4 text-secondary"><%= (srvCR.resources.disk_bytes / (102400*10240)).toFixed(2) %> / <%= (srvC.attributes.limits.disk/1024).toFixed(2) %> GiB </div>
-                                      <div class="progress progress-sm">
-                                        <div class="progress-bar bg-primary" style="width: <%= (srvCR.resources.disk_bytes / (1024*1024)).toFixed(2)/srvC.attributes.limits.disk * 100 %>%" role="progressbar"></div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div><br>
-                              <div class="row row-deck row-cards">
-                                <div class="col-sm-6 col-lg-12">
-                                  <div class="card">
-                                    <div class="card-body">
-                                      <div class="d-flex align-items-center">
-                                        <div class="h2 mb-3">IP Address</div>
-                                      </div>
-                                      Primary IP:
-                                      <div class="h4 text-secondary"><code><span style="padding: 8px; font-family: 'Space Mono'; color: #9B9B9B" ><%= ip %></code></span></div><br>
-                                      Additional allocations:
-                                      <div class="h4 text-secondary"><code><span style="padding: 8px; font-family: 'Space Mono'; color: #9B9B9B" >None</code></span></div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+
+              <!-- START RESOURCES BIT -->
+
+              <div class="col-4">
+                <% let srvCR = srvs[0].resources %>
+                <% let srvC = srvs[0].server %>
+                <div class="row row-deck row-cards">
+                  <div class="col-sm-6 col-lg-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center">
+                          <div class="h2 mb-3">Status</div>
                         </div>
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                        <span id="status">
+                          <% if(srvCR.current_state == "offline") { %>
+                          <i class="fa fa-circle font-small-3 text-danger mr-50"></i> &nbsp;Offline
+                          <% }else if(srvCR.current_state == "starting") { %>
+                          <i class="fa fa-circle font-small-3 text-warning mr-50"></i> &nbsp;Starting
+                          <% }else if(srvCR.current_state == "running") { %>
+                          <i class="fa fa-circle font-small-3 text-success mr-50"></i> &nbsp;Online
+                          <% } %>
+                        </span>
+                        </h5><br>
+                      </div>
+                    </div>
+                  </div>
+                </div><br>
+                <div class="row row-deck row-cards">
+                  <div class="col-sm-6 col-lg-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center">
+                          <div class="h2 mb-3">CPU</div>
+                        </div>
+                        <div class="h4 text-secondary"><%= srvCR.resources.cpu_absolute.toFixed(2) %> / <%= (srvC.attributes.limits.cpu).toFixed(2) %> %</div>
+                        <div class="progress progress-sm">
+                          <div class="progress-bar bg-secondary" style="width: <%= (srvCR.resources.cpu_absolute.toFixed(2) / srvC.attributes.limits.cpu) * 100 %>%" role="progressbar"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center">
+                          <div class="h2">RAM</div>
+                        </div>
+                        <div class="h4 text-secondary"><%= (srvCR.resources.memory_bytes / (102400*10240)).toFixed(2) %> / <%= (srvC.attributes.limits.memory/1024).toFixed(2) %> GiB </div>
+                        <div class="progress progress-sm">
+                          <div class="progress-bar bg-secondary" style="width: <%= (srvCR.resources.memory_bytes / (1024 * 1024)).toFixed(2) / srvC.attributes.limits.memory * 100 %>%" role="progressbar" aria-valuenow="<%= (srvCR.resources.memory_bytes / (1024 * 1024)).toFixed(2) / srvC.attributes.limits.memory * 100 %>" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div><br>
+                <div class="row row-deck row-cards">
+                  <div class="col-sm-6 col-lg-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center">
+                          <div class="h2 mb-3">Storage</div>
+                        </div>
+                        <div class="h4 text-secondary"><%= (srvCR.resources.disk_bytes / (102400*10240)).toFixed(2) %> / <%= (srvC.attributes.limits.disk/1024).toFixed(2) %> GiB </div>
+                        <div class="progress progress-sm">
+                          <div class="progress-bar bg-secondary" style="width: <%= (srvCR.resources.disk_bytes / (1024*1024)).toFixed(2)/srvC.attributes.limits.disk * 100 %>%" role="progressbar"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div><br>
+                <div class="row row-deck row-cards">
+                  <div class="col-sm-6 col-lg-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center">
+                          <div class="h2 mb-3">IP Address</div>
+                        </div>
+                        Primary IP:
+                        <div class="h4 text-secondary"><code><span style="padding: 8px; font-family: 'Space Mono'; color: #9B9B9B"><%= ip %></code></span></div><br>
+                        Additional allocations:
+                        <div class="h4 text-secondary"><code><span style="padding: 8px; font-family: 'Space Mono'; color: #9B9B9B">None</code></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -423,19 +435,19 @@ font-weight: semibold;
             <div class="row text-center align-items-center flex-row-reverse">
               <div class="col-lg-auto ms-lg-auto">
                 <ul class="list-inline list-inline-dots mb-0">
-                  <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Powered by Tazor</a></li>
+                  <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Powered by Polaris Skyport</a></li>
                 </ul>
               </div>
               <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                 <ul class="list-inline list-inline-dots mb-0">
                   <li class="list-inline-item">
-                    Copyright &copy; 2023
-                    <a href="." class="link-secondary">SRYDEN, Inc</a>.
+                    Copyright &copy; 2024
+                    <a href="." class="link-secondary">Polaris Labs, Inc</a>.
                     All rights reserved.
                   </li>
                   <li class="list-inline-item">
                     <a href="./changelog.html" class="link-secondary" rel="noopener">
-                      v1.0.0
+                      v1.0.0-beta1
                     </a>
                   </li>
                 </ul>
@@ -443,108 +455,6 @@ font-weight: semibold;
             </div>
           </div>
         </footer>
-      </div>
-    </div>
-    <div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">New report</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label class="form-label">Name</label>
-              <input type="text" class="form-control" name="example-text-input" placeholder="Your report name">
-            </div>
-            <label class="form-label">Report type</label>
-            <div class="form-selectgroup-boxes row mb-3">
-              <div class="col-lg-6">
-                <label class="form-selectgroup-item">
-                  <input type="radio" name="report-type" value="1" class="form-selectgroup-input" checked>
-                  <span class="form-selectgroup-label d-flex align-items-center p-3">
-                    <span class="me-3">
-                      <span class="form-selectgroup-check"></span>
-                    </span>
-                    <span class="form-selectgroup-label-content">
-                      <span class="form-selectgroup-title strong mb-1">Simple</span>
-                      <span class="d-block text-muted">Provide only basic data needed for the report</span>
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div class="col-lg-6">
-                <label class="form-selectgroup-item">
-                  <input type="radio" name="report-type" value="1" class="form-selectgroup-input">
-                  <span class="form-selectgroup-label d-flex align-items-center p-3">
-                    <span class="me-3">
-                      <span class="form-selectgroup-check"></span>
-                    </span>
-                    <span class="form-selectgroup-label-content">
-                      <span class="form-selectgroup-title strong mb-1">Advanced</span>
-                      <span class="d-block text-muted">Insert charts and additional advanced analyses to be inserted in the report</span>
-                    </span>
-                  </span>
-                </label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-8">
-                <div class="mb-3">
-                  <label class="form-label">Report url</label>
-                  <div class="input-group input-group-flat">
-                    <span class="input-group-text">
-                      https://tabler.io/reports/
-                    </span>
-                    <input type="text" class="form-control ps-0"  value="report-01" autocomplete="off">
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label class="form-label">Visibility</label>
-                  <select class="form-select">
-                    <option value="1" selected>Private</option>
-                    <option value="2">Public</option>
-                    <option value="3">Hidden</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Client name</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Reporting period</label>
-                  <input type="date" class="form-control">
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div>
-                  <label class="form-label">Additional information</label>
-                  <textarea class="form-control" rows="3"></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-              Cancel
-            </a>
-            <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
-              <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-              Create new report
-            </a>
-          </div>
-        </div>
       </div>
     </div>
     <!-- Libs JS -->
@@ -556,19 +466,20 @@ font-weight: semibold;
     <script src="../../../app-assets/tabler/js/tabler.min.js"></script>
     <script src="../../../app-assets/tabler/js/demo.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function() {
 
         var path = window.location.pathname;
         var navLinks = document.querySelectorAll(".navbar-nav a.nav-link");
-        
-        navLinks.forEach(function (link) {
+
+        navLinks.forEach(function(link) {
           var linkHref = link.getAttribute("href");
-          
+
           if (path === linkHref) {
             link.parentNode.classList.add("active");
           }
         });
       });
     </script>
-  </body>
+</body>
+
 </html>

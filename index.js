@@ -5,12 +5,15 @@ const axios = require('axios');
 const expressWs = require('express-ws')(app);
 const fs = require('fs')
 
+// Settings JSON file
+const config = require('./settings.json');
+
 // Configuration settings
 const settings = {
     "ptero": {
-        "url": "https://dev.redstone.sh",
-        "clientKey": "ptlc_8BOhZYNwZpELgkl3TkRAcnCr2X5wm6KzSMR8k7cZqXS",
-        "adminKey": "ptla_lCoK2bSbxe7rbCO3u9fRb0oZGk4Hr05j3thJsYN9YzA"
+        "url": config.pterodactyl.url,
+        "clientKey": config.pterodactyl.clientKey,
+        "adminKey": config.pterodactyl.adminKey
     }
 };
 
@@ -27,8 +30,8 @@ app.use(session({
 
 app.use("/app-assets", express.static('app-assets'));
 
-app.listen(9000, async () => {
-    console.log("Webserver started on port 9000");
+app.listen(config.port, async () => {
+    console.log("Webserver started on port " + config.port);
     try {
         await axios.get(settings.ptero.url + "/auth/login", { timeout: 2000 });
         console.log("Connected to Panel");
@@ -47,7 +50,7 @@ app.use((err, req, res, next) => {
 // index
 app.get("/", async (req, res) => {
     if (req.session.email) return res.redirect("/dashboard");
-    res.redirect('/login');
+    res.redirect('/auth');
 });
 
 // Require the routes

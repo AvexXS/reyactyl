@@ -1,0 +1,13 @@
+{
+    "port": 3000,
+    "pterodactyl": {
+        "url": "https://panel.polarisnode.com",
+        "clientKey": "ptlc_Cx8CY0EJeSDdkX2oHCvd4bx5vBeQpdZmVdfDxmryxk3",
+        "adminKey": "ptla_eP1mEsQnUssgd8MQJFk3x7W7AUbrxyvv5gIy2OaAtsZ"
+    },
+    "discord": {
+        "clientId": "1208788539995848764",
+        "clientSecret": "turxp4fPQ8Oc_rZv3zmht9gsb635RSEf",
+        "redirectUri": "https://beta.polarisnode.com/callback"
+    }
+}
